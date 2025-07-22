@@ -29,7 +29,9 @@ export function QuickLinks() {
                 <ArrowUpRight className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100" />
             </Link>
         ))}
-        <Button className="mt-4 w-full">Contact Teachers</Button>
+        <Button className="mt-4 w-full">
+          <Link href="/contact">Contact Teachers</Link>
+        </Button>
       </CardContent>
     </Card>
   );

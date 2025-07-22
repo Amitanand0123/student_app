@@ -12,11 +12,14 @@ export default function HomeworkPage() {
   useEffect(() => {
     async function fetchHomework() {
       try {
-        const response = await fetch('/api/homework');
+        const response = await fetch(`/api/student/homework`);
         const data = await response.json();
-        if (data.success) {
-          setHomework(data.data);
-        }
+        
+        // --- CORRECTION START ---
+        // The API returns the homework array directly.
+        setHomework(data);
+        // --- CORRECTION END ---
+
       } finally {
         setLoading(false);
       }
@@ -28,10 +31,11 @@ export default function HomeworkPage() {
     // Optimistically update UI
     setHomework(homework.map(hw => hw._id === id ? { ...hw, completed } : hw));
 
-    const response = await fetch('/api/homework', {
+    // The URL for the update request was also incorrect, it needs the ID at the end.
+    const response = await fetch(`/api/student/homework/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id, completed }),
+      body: JSON.stringify({ completed }),
     });
 
     if (response.ok) {
@@ -44,7 +48,7 @@ export default function HomeworkPage() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 animate-fade-in-up">
       <h1 className="text-3xl font-bold tracking-tight">Homework</h1>
       <Card>
         <CardHeader>

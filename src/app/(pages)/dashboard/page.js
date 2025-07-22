@@ -11,14 +11,15 @@ export default function DashboardPage() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const BACKEND_URL=process.env.NEXT_PUBLIC_BACKEND_URL
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('/api/dashboard-data');
+        const response = await fetch(`${BACKEND_URL}/api/student/dashboard-data`);
         if (!response.ok) throw new Error('Failed to fetch data');
         const result = await response.json();
-        setData(result.data);
+        setData(result);
       } catch (e) {
         setError(e.message);
       } finally {
@@ -44,7 +45,7 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="grid auto-rows-max items-start gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid auto-rows-max items-start gap-6 md:grid-cols-2 lg:grid-cols-3 animate-fade-in-up">
       <div className="grid gap-6 lg:col-span-2">
         <div className="grid gap-6 sm:grid-cols-2">
           <AttendanceCard percentage={data?.attendancePercentage || 0} />

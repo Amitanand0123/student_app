@@ -12,16 +12,19 @@ export default function TimetablePage() {
     useEffect(() => {
         async function fetchTimetable() {
             try {
-                const response = await fetch('/api/timetable');
+                const response = await fetch(`/api/student/timetable`);
                 const data = await response.json();
-                if (data.success) {
-                    // Group timetable entries by day
-                    const groupedByDay = data.data.reduce((acc, entry) => {
-                        (acc[entry.day] = acc[entry.day] || []).push(entry);
-                        return acc;
-                    }, {});
-                    setTimetable(groupedByDay);
-                }
+                
+                // --- CORRECTION START ---
+                // The API returns the timetable array directly.
+                // Group the timetable entries by day using the data array.
+                const groupedByDay = data.reduce((acc, entry) => {
+                    (acc[entry.day] = acc[entry.day] || []).push(entry);
+                    return acc;
+                }, {});
+                setTimetable(groupedByDay);
+                // --- CORRECTION END ---
+
             } finally {
                 setLoading(false);
             }
@@ -30,7 +33,7 @@ export default function TimetablePage() {
     }, []);
 
     return (
-        <div className="space-y-6">
+        <div className="space-y-6 animate-fade-in-up">
             <h1 className="text-3xl font-bold tracking-tight">Class Timetable</h1>
             {loading ? (
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

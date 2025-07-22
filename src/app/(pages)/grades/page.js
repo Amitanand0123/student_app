@@ -14,14 +14,21 @@ export default function GradesPage() {
   useEffect(() => {
     async function fetchGrades() {
       try {
-        const response = await fetch('/api/grades');
+        // Using relative path for the proxy
+        const response = await fetch(`/api/student/grades`); 
         const data = await response.json();
-        if (data.success) {
-          setGrades(data.data);
-          // Extract unique terms for the filter dropdown
-          const uniqueTerms = ["All", ...new Set(data.data.map(g => g.term))];
-          setTerms(uniqueTerms);
-        }
+        
+        // --- CORRECTION START ---
+        // The API returns an array directly. Process it without checking for 'success'.
+        setGrades(data); 
+        // Extract unique terms from the data array for the filter dropdown
+        const uniqueTerms = ["All", ...new Set(data.map(g => g.term))];
+        setTerms(uniqueTerms);
+        // --- CORRECTION END ---
+
+      } catch (error) {
+        console.error("Failed to fetch grades:", error);
+        // Optionally, set an error state here to show a message to the user
       } finally {
         setLoading(false);
       }
@@ -33,7 +40,7 @@ export default function GradesPage() {
   const gpa = filteredGrades.length > 0 ? (filteredGrades.reduce((acc, grade) => acc + grade.score, 0) / (filteredGrades.length * 25)).toFixed(2) : 'N/A';
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 animate-fade-in-up">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <h1 className="text-3xl font-bold tracking-tight">Report Card</h1>
         <Select value={selectedTerm} onValueChange={setSelectedTerm}>
