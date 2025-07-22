@@ -215,7 +215,7 @@ export default function TimetablePage() {
                                     <div className="text-3xl font-bold">
                                         {currentDay && timetable[currentDay] ? timetable[currentDay].length : 0}
                                     </div>
-                                    <div className="text-sm text-orange-100">Today's Classes</div>
+                                    <div className="text-sm text-orange-100">Today&apos;s Classes</div>
                                 </div>
                                 <div className="text-4xl">⭐</div>
                             </div>

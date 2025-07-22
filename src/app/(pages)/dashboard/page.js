@@ -92,7 +92,7 @@ export default function DashboardPage() {
             </h1>
           </div>
           <p className="text-slate-600 dark:text-slate-300 text-lg">
-            Welcome back to your learning dashboard. Here's what's happening today.
+            Welcome back to your learning dashboard. Here&apos;s what&apos;s happening today.
           </p>
           <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
@@ -246,7 +246,7 @@ export default function DashboardPage() {
             {/* Today's Stats */}
             <div className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border border-indigo-200 dark:border-indigo-700 rounded-2xl shadow-xl p-6">
               <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
-                📈 Today's Stats
+                📈 Today&apos;s Stats
               </h3>
               <div className="space-y-4">
                 <div className="flex justify-between items-center p-3 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/30 dark:to-purple-900/30 rounded-lg">
