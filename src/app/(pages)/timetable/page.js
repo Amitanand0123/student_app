@@ -49,9 +49,13 @@ export default function TimetablePage() {
                 
                 {/* Header Section */}
                 <div className="space-y-4 animate-in fade-in-0 slide-in-from-left-4 duration-1000">
-                    <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-600 via-sky-600 to-blue-600 bg-clip-text text-transparent">
-                        📅 Class Timetable
+                    <h1 className="text-4xl font-bold flex items-center gap-2">
+                        <span className="text-black">📅</span>
+                        <span className="bg-gradient-to-r from-cyan-600 via-sky-600 to-blue-600 bg-clip-text text-transparent">
+                            Class Timetable
+                        </span>
                     </h1>
+
                     <p className="text-slate-600 dark:text-slate-300 text-lg">
                         Your weekly class schedule at a glance
                     </p>

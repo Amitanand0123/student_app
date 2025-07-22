@@ -8,8 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "server": "node server/server.js",
-    "seed": "node server/seed.js"
+    "server": "node api/server/server.js",
+    "seed": "node api/server/seed.js"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.3.2",

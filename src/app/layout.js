@@ -12,6 +12,9 @@ export const metadata = {
   title: "Student Dashboard",
   description: "School Management System for Students",
   manifest: "/manifest.json",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -21,9 +24,9 @@ export default function RootLayout({ children }) {
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <div className="flex min-h-screen w-full">
             <Sidebar />
-            <div className="flex flex-1 flex-col sm:pl-14">
+            <div className="flex flex-1 flex-col">
               <Header />
-              <main className="flex-1 p-4 sm:p-6">{children}</main>
+              <main className="flex-1 p-4 ml-6 sm:p-6 sm:pl-14">{children}</main>
             </div>
           </div>
           <Toaster richColors />
