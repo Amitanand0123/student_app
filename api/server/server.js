@@ -6,7 +6,7 @@ import studentRoutes from './routes/studentRoutes.js';
 import teacherRoutes from './routes/teacherRoutes.js';
 
 dotenv.config();
-dbConnect();
+
 
 const app = express();
 
@@ -17,5 +17,5 @@ app.use(express.json());
 app.use('/api/student', studentRoutes);
 app.use('/api/teachers', teacherRoutes);
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+export default app;
