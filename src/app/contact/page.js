@@ -122,7 +122,7 @@ export default function ContactPage() {
                                 Send Your Message
                             </CardTitle>
                             <CardDescription className="text-lg text-slate-600 dark:text-slate-300 mt-2">
-                                Fill out the form below and we'll make sure your message reaches the right teacher
+                                Fill out the form below and we&apos;ll make sure your message reaches the right teacher
                             </CardDescription>
                         </CardHeader>
                         <CardContent className="relative space-y-6 p-8">
