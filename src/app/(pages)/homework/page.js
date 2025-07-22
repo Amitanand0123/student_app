@@ -58,7 +58,7 @@ export default function HomeworkPage() {
               <Skeleton className="h-12 w-full" />
               <Skeleton className="h-12 w-full" />
             </div>
-          ) : (
+          ) : homework.length > 0 ? (
             <ul className="space-y-4">
               {homework.map((hw) => (
                 <li key={hw._id} className="flex items-center gap-4 rounded-lg border p-4 transition-colors hover:bg-muted/50">
@@ -78,6 +78,8 @@ export default function HomeworkPage() {
                 </li>
               ))}
             </ul>
+          ) : (
+             <p className="text-center text-muted-foreground py-8">No homework assignments found. Great job!</p>
           )}
         </CardContent>
       </Card>

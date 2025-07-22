@@ -4,7 +4,7 @@ import { ArrowUpRight, Calendar, BookOpen, FileText, Library } from 'lucide-reac
 import Link from 'next/link';
 
 const links = [
-    { name: "View Timetable", icon: Calendar, href: "#" },
+    { name: "View Timetable", icon: Calendar, href: "/timetable" },
     { name: "Exam Schedule", icon: FileText, href: "#" },
     { name: "School Calendar", icon: Calendar, href: "#" },
     { name: "Library Portal", icon: Library, href: "#" },

@@ -3,6 +3,8 @@ import "../styles/globals.css";
 import { ThemeProvider } from "./(components)/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { cn } from "../lib/utils";
+import { Sidebar } from "./(components)/layout/sidebar";
+import { Header } from "./(components)/layout/header";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -16,14 +18,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn("min-h-screen bg-background font-sans antialiased", inter.variable)}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-          <Toaster />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <div className="flex min-h-screen w-full">
+            <Sidebar />
+            <div className="flex flex-1 flex-col sm:pl-14">
+              <Header />
+              <main className="flex-1 p-4 sm:p-6">{children}</main>
+            </div>
+          </div>
+          <Toaster richColors />
         </ThemeProvider>
       </body>
     </html>

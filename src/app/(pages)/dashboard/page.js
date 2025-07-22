@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import { AttendanceCard } from '@/components/dashboard/attendance-card';
-import { HomeworkCard } from '@/components/dashboard/homework-card';
-import { QuickLinks } from '@/components/dashboard/quick-links';
-import { RecentGradesCard } from '@/components/dashboard/recent-grades-card';
 import { Skeleton } from '@/components/ui/skeleton';
+import { AttendanceCard } from '@/app/(components)/dashboard/attendance-card';
+import { HomeworkCard } from '@/app/(components)/dashboard/homework-card';
+import { RecentGradesCard } from '@/app/(components)/dashboard/recent-grades-card';
+import { QuickLinks } from '@/app/(components)/dashboard/quick-links';
 
 export default function DashboardPage() {
   const [data, setData] = useState(null);
