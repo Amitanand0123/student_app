@@ -14,6 +14,7 @@ import { MobileNav } from "./mobile-nav"
 import { ThemeToggle } from "../theme-toggle"
 import { toast } from "sonner"
 import { useEffect, useState } from "react"
+import { cn } from "@/lib/utils"
 
 // Helper function to convert VAPID key
 function urlBase64ToUint8Array(base64String) {
@@ -138,9 +139,16 @@ export function Header() {
           <DropdownMenuTrigger asChild>
             <Button
               variant="ghost"
-              className="relative h-10 w-10 rounded-full hover:bg-violet-100 dark:hover:bg-violet-900/30 transition-all duration-200"
+              className="relative p-0 h-10 w-10 rounded-full transition-all duration-200 hover:bg-transparent"
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br font-bold text-white shadow-lg hover:shadow-violet-500/25 transition-all duration-300">
+              <div
+                className={cn(
+                  "h-10 w-10 flex items-center justify-center rounded-full transition-all duration-300",
+                  student.profilePicture
+                    ? ""
+                    : "bg-violet-200 text-black shadow-lg hover:shadow-violet-500/25"
+                )}
+              >
                 {student.profilePicture ? (
                   <img
                     src={student.profilePicture}
@@ -152,6 +160,8 @@ export function Header() {
                 )}
               </div>
             </Button>
+
+
 
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-64 rounded-2xl border-violet-200 dark:border-violet-700 bg-white/90 dark:bg-slate-800/90 backdrop-blur-lg shadow-2xl" align="end" forceMount>
