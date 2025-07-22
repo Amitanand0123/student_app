@@ -18,7 +18,6 @@ export default function ContactPage() {
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(false);
-    const BACKEND_URL=process.env.NEXT_PUBLIC_BACKEND_URL
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -26,7 +25,7 @@ export default function ContactPage() {
         
 
         try {
-            const response = await fetch(`${BACKEND_URL}/api/teachers/contact`, {
+            const response = await fetch('api/teachers/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ teacher, subject, message }),

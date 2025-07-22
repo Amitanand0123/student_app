@@ -29,12 +29,11 @@ function urlBase64ToUint8Array(base64String) {
 
 export function Header() {
   const [student, setStudent] = useState({ name: 'Student', profilePicture: null });
-  const BACKEND_URL=process.env.NEXT_PUBLIC_BACKEND_URL
 
   useEffect(() => {
     // In a real app, you'd fetch this from a user context or API
     async function fetchUser() {
-        const res = await fetch(`${BACKEND_URL}/api/student/dashboard-data`); // Reuse dashboard data for name
+        const res = await fetch('api/student/dashboard-data'); // Reuse dashboard data for name
         const data = await res.json();
         if (data.success) {
             setStudent({ name: data.data.name, profilePicture: data.data.profilePicture });

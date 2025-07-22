@@ -11,7 +11,6 @@ export default function DashboardPage() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
   const getCurrentGreeting = () => {
     const hour = new Date().getHours();
@@ -23,7 +22,7 @@ export default function DashboardPage() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(`${BACKEND_URL}/api/student/dashboard-data`);
+        const response = await fetch('api/student/dashboard-data');
         if (!response.ok) throw new Error('Failed to fetch data');
         const result = await response.json();
         setData(result);
