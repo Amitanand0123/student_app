@@ -13,7 +13,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// API Routes
 app.use('/api/student', studentRoutes);
 app.use('/api/teachers', teacherRoutes);
 

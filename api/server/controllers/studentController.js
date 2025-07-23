@@ -3,9 +3,6 @@ import asyncHandler from 'express-async-handler';
 
 const SAMPLE_STUDENT_ID = 'STU-12345';
 
-// @desc    Get dashboard data for a student
-// @route   GET /api/student/dashboard-data
-// @access  Public
 const getDashboardData = asyncHandler(async (req, res) => {
   const student = await Student.findOne({ studentId: SAMPLE_STUDENT_ID });
 
@@ -28,9 +25,6 @@ const getDashboardData = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc    Get student's timetable
-// @route   GET /api/student/timetable
-// @access  Public
 const getTimetable = asyncHandler(async (req, res) => {
   const student = await Student.findOne({ studentId: SAMPLE_STUDENT_ID }).select('timetable');
   if (student) {
@@ -41,9 +35,6 @@ const getTimetable = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc    Get student's grades
-// @route   GET /api/student/grades
-// @access  Public
 const getGrades = asyncHandler(async (req, res) => {
     const student = await Student.findOne({ studentId: SAMPLE_STUDENT_ID }).select('grades -_id');
      if (student) {
@@ -54,10 +45,6 @@ const getGrades = asyncHandler(async (req, res) => {
     }
 });
 
-
-// @desc    Get student's homework
-// @route   GET /api/student/homework
-// @access  Public
 const getHomework = asyncHandler(async (req, res) => {
     const student = await Student.findOne({ studentId: SAMPLE_STUDENT_ID }).select('homework');
     if (student) {
@@ -68,9 +55,6 @@ const getHomework = asyncHandler(async (req, res) => {
     }
 });
 
-// @desc    Update homework status
-// @route   PUT /api/student/homework/:id
-// @access  Public
 const updateHomework = asyncHandler(async (req, res) => {
     const { completed } = req.body;
 

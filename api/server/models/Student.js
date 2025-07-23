@@ -10,12 +10,12 @@ const HomeworkSchema = new mongoose.Schema({
 const GradeSchema = new mongoose.Schema({
     subject: { type: String, required: true },
     score: { type: Number, required: true },
-    term: { type: String, required: true }, // e.g., "Fall 2024", "Spring 2025"
+    term: { type: String, required: true },
 });
 
 const TimetableEntrySchema = new mongoose.Schema({
-    day: { type: String, required: true }, // e.g., "Monday"
-    period: { type: String, required: true }, // e.g., "9:00 AM - 10:00 AM"
+    day: { type: String, required: true },
+    period: { type: String, required: true },
     subject: { type: String, required: true },
     teacher: { type: String },
 });

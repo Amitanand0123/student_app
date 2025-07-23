@@ -4,7 +4,7 @@ import { useTheme } from 'next-themes';
 
 export function GradesBarChart({ data }) {
     const { theme } = useTheme();
-    const primaryColor = theme === 'dark' ? '#38bdf8' : '#0ea5e9'; // Using Tailwind's sky-400 and sky-500
+    const primaryColor = theme === 'dark' ? '#38bdf8' : '#0ea5e9';
 
     return (
         <ResponsiveContainer width="100%" height="100%">
@@ -14,8 +14,8 @@ export function GradesBarChart({ data }) {
                 <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} domain={[0, 100]} />
                 <Tooltip
                     contentStyle={{
-                        backgroundColor: theme === 'dark' ? '#020617' : '#ffffff', // slate-950 or white
-                        borderColor: theme === 'dark' ? '#1e293b' : '#e2e8f0', // slate-800 or slate-200
+                        backgroundColor: theme === 'dark' ? '#020617' : '#ffffff',
+                        borderColor: theme === 'dark' ? '#1e293b' : '#e2e8f0',
                     }}
                 />
                 <Bar dataKey="score" fill={primaryColor} radius={[4, 4, 0, 0]} />
